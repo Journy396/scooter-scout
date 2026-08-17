@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FavoritenRouteImport } from './routes/favoriten'
+import { Route as FinderRouteImport } from './routes/finder'
+import { Route as KategorienRouteImport } from './routes/kategorien'
+import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
+import { Route as VergleichRouteImport } from './routes/vergleich'
+import { Route as MarkenIndexRouteImport } from './routes/marken.index'
+import { Route as MarkenBrandRouteImport } from './routes/marken.$brand'
+import { Route as ScooterIndexRouteImport } from './routes/scooter.index'
+import { Route as ScooterIdRouteImport } from './routes/scooter.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FavoritenRoute = FavoritenRouteImport.update({
+  id: '/favoriten',
+  path: '/favoriten',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinderRoute = FinderRouteImport.update({
+  id: '/finder',
+  path: '/finder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KategorienRoute = KategorienRouteImport.update({
+  id: '/kategorien',
+  path: '/kategorien',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UeberUnsRoute = UeberUnsRouteImport.update({
+  id: '/ueber-uns',
+  path: '/ueber-uns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VergleichRoute = VergleichRouteImport.update({
+  id: '/vergleich',
+  path: '/vergleich',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarkenIndexRoute = MarkenIndexRouteImport.update({
+  id: '/marken/',
+  path: '/marken/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarkenBrandRoute = MarkenBrandRouteImport.update({
+  id: '/marken/$brand',
+  path: '/marken/$brand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScooterIndexRoute = ScooterIndexRouteImport.update({
+  id: '/scooter/',
+  path: '/scooter/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScooterIdRoute = ScooterIdRouteImport.update({
+  id: '/scooter/$id',
+  path: '/scooter/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/favoriten': typeof FavoritenRoute
+  '/finder': typeof FinderRoute
+  '/kategorien': typeof KategorienRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/vergleich': typeof VergleichRoute
+  '/marken/$brand': typeof MarkenBrandRoute
+  '/scooter/$id': typeof ScooterIdRoute
+  '/marken/': typeof MarkenIndexRoute
+  '/scooter/': typeof ScooterIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/favoriten': typeof FavoritenRoute
+  '/finder': typeof FinderRoute
+  '/kategorien': typeof KategorienRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/vergleich': typeof VergleichRoute
+  '/marken/$brand': typeof MarkenBrandRoute
+  '/scooter/$id': typeof ScooterIdRoute
+  '/marken': typeof MarkenIndexRoute
+  '/scooter': typeof ScooterIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/favoriten': typeof FavoritenRoute
+  '/finder': typeof FinderRoute
+  '/kategorien': typeof KategorienRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/vergleich': typeof VergleichRoute
+  '/marken/$brand': typeof MarkenBrandRoute
+  '/scooter/$id': typeof ScooterIdRoute
+  '/marken/': typeof MarkenIndexRoute
+  '/scooter/': typeof ScooterIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/favoriten'
+    | '/finder'
+    | '/kategorien'
+    | '/ueber-uns'
+    | '/vergleich'
+    | '/marken/$brand'
+    | '/scooter/$id'
+    | '/marken/'
+    | '/scooter/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/favoriten'
+    | '/finder'
+    | '/kategorien'
+    | '/ueber-uns'
+    | '/vergleich'
+    | '/marken/$brand'
+    | '/scooter/$id'
+    | '/marken'
+    | '/scooter'
+  id:
+    | '__root__'
+    | '/'
+    | '/favoriten'
+    | '/finder'
+    | '/kategorien'
+    | '/ueber-uns'
+    | '/vergleich'
+    | '/marken/$brand'
+    | '/scooter/$id'
+    | '/marken/'
+    | '/scooter/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FavoritenRoute: typeof FavoritenRoute
+  FinderRoute: typeof FinderRoute
+  KategorienRoute: typeof KategorienRoute
+  UeberUnsRoute: typeof UeberUnsRoute
+  VergleichRoute: typeof VergleichRoute
+  MarkenBrandRoute: typeof MarkenBrandRoute
+  ScooterIdRoute: typeof ScooterIdRoute
+  MarkenIndexRoute: typeof MarkenIndexRoute
+  ScooterIndexRoute: typeof ScooterIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/favoriten': {
+      id: '/favoriten'
+      path: '/favoriten'
+      fullPath: '/favoriten'
+      preLoaderRoute: typeof FavoritenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finder': {
+      id: '/finder'
+      path: '/finder'
+      fullPath: '/finder'
+      preLoaderRoute: typeof FinderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kategorien': {
+      id: '/kategorien'
+      path: '/kategorien'
+      fullPath: '/kategorien'
+      preLoaderRoute: typeof KategorienRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ueber-uns': {
+      id: '/ueber-uns'
+      path: '/ueber-uns'
+      fullPath: '/ueber-uns'
+      preLoaderRoute: typeof UeberUnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vergleich': {
+      id: '/vergleich'
+      path: '/vergleich'
+      fullPath: '/vergleich'
+      preLoaderRoute: typeof VergleichRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marken/': {
+      id: '/marken/'
+      path: '/marken'
+      fullPath: '/marken/'
+      preLoaderRoute: typeof MarkenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marken/$brand': {
+      id: '/marken/$brand'
+      path: '/marken/$brand'
+      fullPath: '/marken/$brand'
+      preLoaderRoute: typeof MarkenBrandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scooter/': {
+      id: '/scooter/'
+      path: '/scooter'
+      fullPath: '/scooter/'
+      preLoaderRoute: typeof ScooterIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scooter/$id': {
+      id: '/scooter/$id'
+      path: '/scooter/$id'
+      fullPath: '/scooter/$id'
+      preLoaderRoute: typeof ScooterIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FavoritenRoute: FavoritenRoute,
+  FinderRoute: FinderRoute,
+  KategorienRoute: KategorienRoute,
+  UeberUnsRoute: UeberUnsRoute,
+  VergleichRoute: VergleichRoute,
+  MarkenBrandRoute: MarkenBrandRoute,
+  ScooterIdRoute: ScooterIdRoute,
+  MarkenIndexRoute: MarkenIndexRoute,
+  ScooterIndexRoute: ScooterIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
